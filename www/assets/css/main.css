@@ -7,6 +7,11 @@
 	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
 */
 
+:root {
+	--accent-color: #35527d;
+	--active-accent-color: #37638e;
+}
+
 html, body, div, span, applet, object,
 iframe, h1, h2, h3, h4, h5, h6, p, blockquote,
 pre, a, abbr, acronym, address, big, cite,
@@ -135,7 +140,9 @@ input, select, textarea {
 		}
 
 			h2.alt strong {
-				color: #666;
+				font-weight: 600;
+				text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.4);
+				// color: #666;
 			}
 
 	h3 {
@@ -175,7 +182,7 @@ input, select, textarea {
 	}
 
 		a:hover {
-			color: #E27689;
+			color: var(--accent-color);
 			border-bottom-color: rgba(255, 255, 255, 0);
 		}
 
@@ -1948,7 +1955,7 @@ input, select, textarea {
 		color: #fff !important;
 		text-decoration: none;
 		padding: 0.75em 2.5em 0.75em 2.5em;
-		background-color: #8ebebc;
+		background-color: var(--accent-color);
 		border: 0;
 		cursor: pointer;
 		background-image: -moz-linear-gradient(top, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.15)), url("images/overlay.png");
@@ -1966,7 +1973,7 @@ input, select, textarea {
 		input[type="reset"]:hover,
 		button:hover,
 		.button:hover {
-			background-color: #9ececc;
+			background-color: var(--active-accent-color);
 		}
 
 		input[type="button"]:active,
@@ -1974,7 +1981,7 @@ input, select, textarea {
 		input[type="reset"]:active,
 		button:active,
 		.button:active {
-			background-color: #7eaeac;
+			background-color: var(--active-accent-color);
 		}
 
 /* Item */
@@ -2055,7 +2062,7 @@ input, select, textarea {
 		position: fixed;
 		text-align: right;
 		top: 0;
-		width: 375px;
+		width: 275px;
 	}
 
 		#header .top {
@@ -2169,13 +2176,13 @@ input, select, textarea {
 				}
 
 					#nav ul li a.active span:before {
-						color: #e27689;
+						color: var(--accent-color);
 					}
 
 /* Footer */
 
 	#footer {
-		margin-left: 375px;
+		margin-left: 275px;
 		text-align: center;
 		background-color: #dce3e2;
 		padding: 3em 0 4em 0;
@@ -2205,7 +2212,7 @@ input, select, textarea {
 /* Main */
 
 	#main {
-		margin-left: 375px;
+		margin-left: 275px;
 	}
 
 		#main > section {
@@ -2276,19 +2283,19 @@ input, select, textarea {
 		/* Header */
 
 			#header {
-				width: 300px;
+				width: 275px;
 			}
 
 		/* Footer */
 
 			#footer {
-				margin-left: 300px;
+				margin-left: 275px;
 			}
 
 		/* Main */
 
 			#main {
-				margin-left: 300px;
+				margin-left: 275px;
 			}
 
 	}
@@ -2588,7 +2595,7 @@ input, select, textarea {
 			h2 {
 				font-size: 1.5em;
 				letter-spacing: 0;
-				font-weight: 300;
+				font-weight: 600;
 			}
 
 			.container {
