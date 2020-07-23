@@ -32,7 +32,7 @@ section, summary, time, mark, audio, video {
 
 article, aside, details, figcaption, figure,
 footer, header, hgroup, menu, nav, section {
-	display: block;}
+	display: block;
 
 	line-height: 1;
 }
@@ -149,11 +149,11 @@ input, select, textarea {
 	}
 
 	header {
-		margin: 0 0 2em 0;
+		margin: 0 0 1em 0;
 	}
 
 		header > p {
-			margin: 1em 0 0 0;
+			margin: 0 0 0 0;
 		}
 
 	footer {
@@ -267,7 +267,7 @@ input, select, textarea {
 
 /* Sections/Article */
 
-	section, article {
+	section {
 		margin-bottom: 3em;
 	}
 
@@ -416,6 +416,7 @@ input, select, textarea {
 	form input[type="email"],
 	form input[type="password"],
 	form select {
+		margin: 1em 0 0 0;
 		line-height: 1.25em;
 	}
 
@@ -750,13 +751,16 @@ input, select, textarea {
 /* Main */
 
 	#main {
+		display: grid;
+		grid-template-columns: 100%;
+		grid-gap: 0;
 		margin-left: 275px;
 	}
 
 		#main > section {
 			margin: 0;
-			overflow: hidden;
-			padding: 4em 0;
+			/* overflow: hidden; */
+			/* padding: 4em 0; */
 			box-shadow: inset 0 1px 0 0 rgba(0, 0, 0, 0.05), inset 0 0.1em 0.1em 0 rgba(0, 0, 0, 0.025);
 			text-align: center;
 			background-image: url("images/overlay.png");
@@ -794,9 +798,11 @@ input, select, textarea {
 			#main > section.one {
 				background-color: #81918E;
 				background-image: url("../../images/banner.jpg");
+				box-shadow: inset -0.25em 0 0.25em 0 rgba(0, 0, 0, 0.125);
 			}
 
 			#main > section.two {
+				overflow: visible;
 				background-color: #f5fafa;
 			}
 
@@ -845,7 +851,7 @@ input, select, textarea {
 		/* Main */
 
 			#main > section {
-				padding: 3em 0;
+				padding: 1em 0;
 			}
 
 			#main section.cover {
@@ -1178,7 +1184,8 @@ input, select, textarea {
 .grid {
 	display: grid;
 	grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-	grid-gap: 5%;
+	grid-gap: 10px;
+	padding-bottom: 1.5em;
 }
 
 /* The Modal (background) */
@@ -1187,11 +1194,16 @@ input, select, textarea {
 	transition: 0.3s;
 }
 
+.two img {
+	height: 250px;
+	object-fit: cover;
+}
+
 .modal {
   display: none; /* Hidden by default */
   position: fixed; /* Stay in place */
   z-index: 1; /* Sit on top */
-  padding-top: 100px; /* Location of the box */
+  padding-top: 2%; /* Location of the box */
   left: 0;
   top: 0;
   width: 100%; /* Full width */
@@ -1205,8 +1217,10 @@ input, select, textarea {
 .modal-content {
   margin: auto;
   display: block;
+  max-height: 100vh;
   width: 80%;
   max-width: 700px;
+  object-fit: contain;
 }
 
 /* Caption of Modal Image (Image Text) - Same Width as the Image */
