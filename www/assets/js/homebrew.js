@@ -37,21 +37,37 @@ span.onclick = function() {
 // When the user clicks left or right, do something;
 left.onclick = right.onclick = function() {
     // Figure out what index of imgs, then iterate +1, -1 or roundrobin
-    // console.log(modalImg.index);
 
     if (this.attributes.Id.value === "right") {
         modalImg.index += 1;
     } else {
         modalImg.index -= 1;
-    }
+    };
 
     if (modalImg.index >= imgs.length) {
         modalImg.index = 0;
     } else if (modalImg.index < 0) {
         modalImg.index = imgs.length - 1;
-    }
+    };
 
-    // console.log(modalImg.index);
     captionText.innerHTML = captions[modalImg.index].innerHTML;
     modalImg.src = imgs[modalImg.index].src;
 }
+
+// Handle Swipes
+$(function() {
+  $(".modal-content").swipe( {
+    //Generic swipe handler for all directions
+    swipe:function(event, direction, distance, duration, fingerCount, fingerData) {
+        if (direction === "left") {
+            left.onclick();
+        } else if (direction === "right") {
+            right.onclick();
+        } else {
+            modal.style.display = "none";
+        }
+    }
+  });
+});
+
+// Fucking Swipey animation
