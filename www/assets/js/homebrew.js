@@ -30,13 +30,15 @@ var left = document.getElementById("left");
 var right = document.getElementById("right");
 
 // When the user clicks on <span> (x), close the modal
-span.onclick = function() {
+span.onclick = modal.onclick = function() {
   modal.style.display = "none";
 }
 
 // When the user clicks left or right, do something;
-left.onclick = right.onclick = function() {
+left.onclick = right.onclick = function(e) {
     // Figure out what index of imgs, then iterate +1, -1 or roundrobin
+
+    e.stopPropagation();
 
     if (this.attributes.Id.value === "right") {
         modalImg.index += 1;
@@ -71,3 +73,27 @@ $(function() {
 });
 
 // Fucking Swipey animation
+
+// Handle arrow keys
+
+window.addEventListener("keydown", function (event) {
+    if (event.defaultPrevented) {
+        return;
+    }
+
+    switch (event.key) {
+        case "ArrowLeft":
+            left.onclick();
+            break;
+        case "ArrowRight":
+            right.onclick();
+            break;
+        case "Escape":
+            modal.style.display = "none";
+            break;
+        default:
+            return;
+    }
+
+    event.preventDefault();
+}, true);
