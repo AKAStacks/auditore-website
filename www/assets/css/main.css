@@ -705,7 +705,7 @@ input, select, textarea {
 						color: #41484c;
 						text-align: center;
 						width: 1.25em;
-						line-height: 1.75em;
+						/* line-height: 1.75em; */
 					}
 
 				#nav ul li a.active {
@@ -1217,7 +1217,7 @@ input, select, textarea {
 .modal-content {
   margin: auto;
   display: block;
-  max-height: 100vh;
+  max-height: 90vh;
   width: 80%;
   max-width: 700px;
   object-fit: contain;
@@ -1263,6 +1263,34 @@ input, select, textarea {
   text-decoration: none;
   cursor: pointer;
 }
+
+/* The Left and Right Buttons */
+#left, #right {
+  color: #f1f1f1;
+  font-size: 40px;
+  font-weight: bold;
+  transition: 0.3s;
+  position: absolute;
+  top: 50vh;
+}
+
+#left {
+	left: 35px;
+}
+
+#right {
+	right: 35px;
+}
+
+#left:hover,
+#right:hover,
+#left:focus,
+#right:focus {
+  color: #bbb;
+  text-decoration: none;
+  cursor: pointer;
+}
+
 
 /* 100% Image Width on Smaller Screens */
 @media only screen and (max-width: 700px){
