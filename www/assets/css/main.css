@@ -12,6 +12,11 @@
 	--active-accent-color: #37638e;
 }
 
+.noscroll {
+	height: 100%;
+	overflow: hidden;
+}
+
 .auditore {
 	font-size: 6em;
 	color: #ffffff;
@@ -1211,6 +1216,15 @@ input, select, textarea {
 	padding-bottom: 1.5em;
 }
 
+#gradient {
+	position: absolute;
+	top: 0px;
+	left: 0px;
+	width: 100vw;
+	height: 3em;
+	background: linear-gradient(rgba(0,0,0,0.75),rgba(0,0,0,0));
+}
+
 @media only screen and (min-width: 992px){
   .grid {
     grid-template-columns: repeat(3, 1fr);
@@ -1328,8 +1342,10 @@ input, select, textarea {
 
 /* 100% Image Width on Smaller Screens */
 @media only screen and (max-width: 700px){
-  .modal-content {
-    width: 100%;
+.modal-content {
+	max-width: unset;
+	max-height: unset;
+    width: 95%;
   }
 }
 
