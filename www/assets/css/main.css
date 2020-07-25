@@ -26,6 +26,17 @@
 	line-height: 1em;
 }
 
+.auditore2 {
+	font-size: 4em;
+	color: #ffffff;
+	display: inline;
+	vertical-align: middle;
+	opacity: 1;
+	font-family: 'Dancing Script', cursive;
+	text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.4);
+	line-height: 250px;
+}
+
 .subauditore {
 	font-size: 1.5em;
 	color: #ffffff;
@@ -335,15 +346,18 @@ input, select, textarea {
 		}
 
 		.image.featured {
-			display: block;
+			display: inline-block;
+			height: 250px;
 			width: 100%;
 			margin: 0 0 2em 0;
+			background-image: url("../../images/luth01.jpg");
+			box-shadow: inset 0 1px 0 0 rgba(0, 0, 0, 0.05), inset 0 0.1em 0.1em 0 rgba(0, 0, 0, 0.025), 0 0.1em 0.1em 0 rgba(0,0,0,0.025);
 		}
 
-		.image.featured img {
-			width: 100%;
-			object-fit: cover;
-		}
+		/* .image.featured img { */
+		/* 	width: 100%; */
+		/* 	object-fit: cover; */
+		/* } */
 
 		.image.left {
 			float: left;
@@ -838,6 +852,7 @@ input, select, textarea {
 
 			#main > section.three {
 				background-color: #ecf1f1;
+				padding-top: 0;
 			}
 
 			#main > section.four {
