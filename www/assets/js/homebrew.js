@@ -16,6 +16,8 @@ var i;
 for (i = 0; i < imgs.length; i++) {
     imgs[i].index = i;
     imgs[i].onclick = function() {
+        $("body").addClass("noscroll");
+        $("html").addClass("noscroll");
         modal.style.display = "block";
         modalImg.src = this.src;
         modalImg.index = this.index;
@@ -32,13 +34,17 @@ var right = document.getElementById("right");
 // When the user clicks on <span> (x), close the modal
 span.onclick = modal.onclick = function() {
   modal.style.display = "none";
+  $("body").removeClass("noscroll");
+  $("html").removeClass("noscroll");
 }
 
 // When the user clicks left or right, do something;
 left.onclick = right.onclick = function(e) {
     // Figure out what index of imgs, then iterate +1, -1 or roundrobin
 
-    e.stopPropagation();
+    if (typeof e !== 'undefined') {
+        e.stopPropagation();
+    }
 
     if (this.attributes.Id.value === "right") {
         modalImg.index += 1;
@@ -67,6 +73,8 @@ $(function() {
             right.onclick();
         } else {
             modal.style.display = "none";
+            $("body").removeClass("noscroll");
+            $("html").removeClass("noscroll");
         }
     }
   });
@@ -90,6 +98,8 @@ window.addEventListener("keydown", function (event) {
             break;
         case "Escape":
             modal.style.display = "none";
+            $("body").removeClass("noscroll");
+            $("html").removeClass("noscroll");
             break;
         default:
             return;
