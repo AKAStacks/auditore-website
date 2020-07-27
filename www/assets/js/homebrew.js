@@ -18,6 +18,7 @@ for (i = 0; i < imgs.length; i++) {
     imgs[i].onclick = function() {
         $("body").addClass("noscroll");
         $("html").addClass("noscroll");
+        $(".modal-content").addClass("zoomanim");
         modal.style.display = "block";
         modalImg.src = this.src;
         modalImg.index = this.index;
@@ -42,24 +43,43 @@ span.onclick = modal.onclick = function() {
 left.onclick = right.onclick = function(e) {
     // Figure out what index of imgs, then iterate +1, -1 or roundrobin
 
+    // Stop the event passing to the modal background
     if (typeof e !== 'undefined') {
         e.stopPropagation();
     }
 
+    // Create clone to allow for repeat animation
+    let newOne = modalImg.cloneNode(true);
+    let oldModalImg = modalImg;
+
+    // Left v. Right
     if (this.attributes.Id.value === "right") {
+        oldModalImg.classList.add("right-swipe-out");
         modalImg.index += 1;
     } else {
+        oldModalImg.classList.add("left-swipe-out");
         modalImg.index -= 1;
     };
 
+
+    oldModalImg.addEventListener("animationend", function (e) {
+        oldModalImg.parentNode.removeChild(oldModalImg);
+        newOne.index = modalImg.index;
+        modal.appendChild(newOne);
+        modalImg = newOne;
+
+        modalImg.src = imgs[modalImg.index].src;
+        captionText.innerHTML = captions[modalImg.index].innerHTML;
+    }, false);
+
+    // Round-robin
     if (modalImg.index >= imgs.length) {
         modalImg.index = 0;
     } else if (modalImg.index < 0) {
         modalImg.index = imgs.length - 1;
     };
 
-    captionText.innerHTML = captions[modalImg.index].innerHTML;
-    modalImg.src = imgs[modalImg.index].src;
+
 }
 
 // Handle Swipes
