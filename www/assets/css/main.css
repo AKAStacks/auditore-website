@@ -1306,6 +1306,11 @@ input, select, textarea {
   animation-duration: 0.6s;
 }
 
+.zoomfast {
+  animation-name: zoom;
+  animation-duration: 0.3s;
+}
+
 @keyframes zoom {
   from {transform:scale(0)}
   to {transform:scale(1)}
@@ -1314,7 +1319,7 @@ input, select, textarea {
 /* Modal scrolling animation */
 .left-swipe-out {
   animation-name: leftSwipeOut;
-  animation-duration: 0.5s;
+  animation-duration: 0.3s;
 }
 
 @keyframes leftSwipeOut {
@@ -1324,7 +1329,7 @@ input, select, textarea {
 
 .right-swipe-out {
   animation-name: rightSwipeOut;
-  animation-duration: 0.5s;
+  animation-duration: 0.3s;
 }
 
 @keyframes rightSwipeOut {

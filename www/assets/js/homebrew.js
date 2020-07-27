@@ -50,6 +50,8 @@ left.onclick = right.onclick = function(e) {
 
     // Create clone to allow for repeat animation
     let newOne = modalImg.cloneNode(true);
+    newOne.classList.remove('zoomanim');
+    newOne.classList.add('zoomfast');
     let oldModalImg = modalImg;
 
     // Left v. Right
