@@ -1311,9 +1311,19 @@ input, select, textarea {
   animation-duration: 0.3s;
 }
 
+.zoomaway {
+  animation-name: zoomaway;
+  animation-duration: 0.3s;
+}
+
 @keyframes zoom {
   from {transform:scale(0)}
   to {transform:scale(1)}
+}
+
+@keyframes zoomaway {
+  from {transform:scale(1)}
+  to {transform:scale(0)}
 }
 
 /* Modal scrolling animation */

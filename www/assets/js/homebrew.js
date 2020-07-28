@@ -34,9 +34,17 @@ var right = document.getElementById("right");
 
 // When the user clicks on <span> (x), close the modal
 span.onclick = modal.onclick = function() {
-  modal.style.display = "none";
-  $("body").removeClass("noscroll");
-  $("html").removeClass("noscroll");
+    modalImg.addEventListener('animationend', (e) => {
+        if (e.animationName === 'zoomaway') {
+            modal.style.display = "none";
+            $("body").removeClass("noscroll");
+            $("html").removeClass("noscroll");
+            $('.modal-content').removeClass('zoomaway');
+            captionText.classList.remove('zoomaway');
+        }
+    }, true);
+    modalImg.classList.add('zoomaway');
+    captionText.classList.add('zoomaway');
 }
 
 // When the user clicks left or right, do something;
@@ -80,13 +88,11 @@ left.onclick = right.onclick = function(e) {
     } else if (modalImg.index < 0) {
         modalImg.index = imgs.length - 1;
     };
-
-
 }
 
 // Handle Swipes
 $(function() {
-  $(".modal-content").swipe( {
+  $(".modal").swipe( {
     //Generic swipe handler for all directions
     swipe:function(event, direction, distance, duration, fingerCount, fingerData) {
         if (direction === "left") {
@@ -101,8 +107,6 @@ $(function() {
     }
   });
 });
-
-// Fucking Swipey animation
 
 // Handle arrow keys
 
