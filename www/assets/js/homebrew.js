@@ -10,19 +10,27 @@ var saleImgs = forsale.getElementsByTagName("img");
 var saleModalBG = document.getElementsByClassName("dating-container")[0];
 var saleModal = document.getElementById("dating-modal");
 var saleModalImg = document.getElementById("dating-img");
+var saleCaptions = forsale.getElementsByTagName("h3");
+var saleClose = document.getElementById("dating-close");
 
 for (i = 0; i < saleImgs.length; i ++) {
     saleImgs[i].index = i;
     saleImgs[i].onclick = function() {
         $("body").addClass("noscroll");
         $("html").addClass("noscroll");
-        $(".dating-modal").addClass("zoomanim");
+        saleModal.classList.add("zoomanim");
+        document.getElementById("dating-name").innerHTML = saleCaptions[this.index].innerHTML;
         saleModalBG.style.display = "block";
         saleModalImg.src = this.src;
     }
 }
 
-saleModalBG.onclick = function() {
+saleModalBG.onclick = saleClose.onclick = function(e) {
+    // Stop the event passing to the modal background
+    if (typeof e !== 'undefined') {
+        e.stopPropagation();
+    }
+
     saleModal.addEventListener('animationend', (e) => {
         if (e.animationName === 'zoomaway') {
             saleModalBG.style.display = "none";
@@ -70,6 +78,11 @@ var right = document.getElementById("right");
 
 // When the user clicks on <span> (x), close the modal
 span.onclick = modal.onclick = function() {
+    // Stop the event passing to the modal background
+    if (typeof e !== 'undefined') {
+        e.stopPropagation();
+    }
+
     modalImg.addEventListener('animationend', (e) => {
         if (e.animationName === 'zoomaway') {
             modal.style.display = "none";
