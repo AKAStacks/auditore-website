@@ -1,7 +1,8 @@
 @import url("fontawesome-all.min.css");
+
 @import url("https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap");
 @import url("https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,300italic,400,600");
-/*
+
 	Prologue by HTML5 UP
 	html5up.net | @ajlkn
 	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
@@ -62,7 +63,8 @@ section, summary, time, mark, audio, video {
 	border: 0;
 	font-size: 100%;
 	font: inherit;
-	vertical-align: baseline;}
+	vertical-align: baseline;
+}
 
 article, aside, details, figcaption, figure,
 footer, header, hgroup, menu, nav, section {
@@ -1408,4 +1410,94 @@ input, select, textarea {
 
 @media (hover: none) {
     /* ... */
+}
+
+/* "Dating Profiles" */
+
+.dating-container {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  padding-top: 2%; /* Location of the box */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  min-width: 100%;
+  min-height: 100%;
+  overflow: hidden; /* Enable scroll if needed */
+  background-color: rgba(0,0,0,0); /* Black w/ opacity */
+  text-align: center;
+}
+
+.dating-modal {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-top: -35vh;
+  margin-left: -35vw;
+  padding-top: 2%; /* Location of the box */
+  vertical-align: middle;
+  width: 70vw; /* Full width */
+  height: 70vh; /* Full height */
+  overflow: hidden; /* Enable scroll if needed */
+  background-color: rgba(255,255,255,.99); /* Black w/ opacity */
+  border-radius: 10px;
+  box-shadow: 0 0.5em 0.5em 0 rgba(0,0,0,0.25);
+
+
+}
+
+#dating-name {
+	font-family: 'Dancing Script', cursive;
+	grid-column-start: 1;
+	grid-column-end: 3;
+
+	grid-row-start: 1;
+	grid-row-end: 1;
+
+	text-align: left;
+}
+
+#dating-img {
+	grid-column-start: 1;
+	grid-column-end: 1;
+
+	grid-row-start: 2;
+	grid-row-end: 5;
+
+	margin-top: 15px;
+
+	height: 100%;
+	object-fit: cover;
+
+	border-radius: 5px;
+}
+
+#dating-desc {
+	grid-column-start: 2;
+	grid-column-end: 3;
+
+	grid-row-start: 2;
+	grid-row-end: 2;
+
+	text-align: left;
+	font-size: .75em;
+}
+
+#dating-modal-int {
+    display: grid;
+	grid-gap: 5px;
+	grid-template-rows: 1em auto auto auto 10%;
+	grid-template-columns: 25% 50% 25%;
+
+	padding: 1em 1em 1em 1em;
+    width: 100%;
+	height: 100%;
+}
+
+#dating-close {
+	grid-column: 3;
+	grid-row: 1;
+	text-align: right;
 }

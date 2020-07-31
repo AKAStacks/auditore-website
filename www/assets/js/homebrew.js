@@ -1,21 +1,57 @@
 /*
  *
  * Modals based on example from w3.com
+ * For Sale modal
+ *
+ */
+
+var i;
+var saleImgs = forsale.getElementsByTagName("img");
+var saleModalBG = document.getElementsByClassName("dating-container")[0];
+var saleModal = document.getElementById("dating-modal");
+var saleModalImg = document.getElementById("dating-img");
+
+for (i = 0; i < saleImgs.length; i ++) {
+    saleImgs[i].index = i;
+    saleImgs[i].onclick = function() {
+        $("body").addClass("noscroll");
+        $("html").addClass("noscroll");
+        $(".dating-modal").addClass("zoomanim");
+        saleModalBG.style.display = "block";
+        saleModalImg.src = this.src;
+    }
+}
+
+saleModalBG.onclick = function() {
+    saleModal.addEventListener('animationend', (e) => {
+        if (e.animationName === 'zoomaway') {
+            saleModalBG.style.display = "none";
+            $("body").removeClass("noscroll");
+            $("html").removeClass("noscroll");
+            saleModal.classList.remove('zoomaway');
+        }
+    }, true);
+    saleModal.classList.add('zoomaway');
+}
+
+/*
+ *
+ * Modals based on example from w3.com
+ * WIP Modal
  *
 */
 
 var modal = document.getElementsByClassName("modal")[0];
 
 // Get the image and insert it inside the modal - use its "alt" text as a caption
-var imgs = portfolio.getElementsByTagName("img");
+var wipimgs = portfolio.getElementsByTagName("img");
 var captions = portfolio.getElementsByTagName("h3");
 var modalImg = document.getElementById("img01");
 var captionText = document.getElementById("caption");
 
-var i;
-for (i = 0; i < imgs.length; i++) {
-    imgs[i].index = i;
-    imgs[i].onclick = function() {
+for (i = 0; i < wipimgs.length; i++) {
+    wipimgs[i].index = i;
+    wipimgs[i].onclick = function() {
         $("body").addClass("noscroll");
         $("html").addClass("noscroll");
         $(".modal-content").addClass("zoomanim");
@@ -49,7 +85,7 @@ span.onclick = modal.onclick = function() {
 
 // When the user clicks left or right, do something;
 left.onclick = right.onclick = function(e) {
-    // Figure out what index of imgs, then iterate +1, -1 or roundrobin
+    // Figure out what index of wipimgs, then iterate +1, -1 or roundrobin
 
     // Stop the event passing to the modal background
     if (typeof e !== 'undefined') {
@@ -78,15 +114,15 @@ left.onclick = right.onclick = function(e) {
         modal.appendChild(newOne);
         modalImg = newOne;
 
-        modalImg.src = imgs[modalImg.index].src;
+        modalImg.src = wipimgs[modalImg.index].src;
         captionText.innerHTML = captions[modalImg.index].innerHTML;
     }, false);
 
     // Round-robin
-    if (modalImg.index >= imgs.length) {
+    if (modalImg.index >= wipimgs.length) {
         modalImg.index = 0;
     } else if (modalImg.index < 0) {
-        modalImg.index = imgs.length - 1;
+        modalImg.index = wipimgs.length - 1;
     };
 }
 
