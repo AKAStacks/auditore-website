@@ -10,14 +10,14 @@ var saleImgs = forsale.getElementsByTagName("img");
 var saleModalBG = document.getElementsByClassName("dating-container")[0];
 var saleModal = document.getElementById("dating-modal");
 var saleModalImg = document.getElementById("dating-img");
+var saleModalInt = document.getElementById("dating-modal-int");
 var saleCaptions = forsale.getElementsByTagName("h3");
 var saleClose = document.getElementById("dating-close");
 
 for (i = 0; i < saleImgs.length; i ++) {
     saleImgs[i].index = i;
     saleImgs[i].onclick = function() {
-        $("body").addClass("noscroll");
-        $("html").addClass("noscroll");
+        lockScrollPos();
         saleModal.classList.add("zoomanim");
         document.getElementById("dating-name").innerHTML = saleCaptions[this.index].innerHTML;
         saleModalBG.style.display = "block";
@@ -25,17 +25,16 @@ for (i = 0; i < saleImgs.length; i ++) {
     }
 }
 
-saleModalBG.onclick = saleClose.onclick = function(e) {
+saleModalImg.onclick = saleModal.onclick = saleModalInt.onclick = function(e) {
     // Stop the event passing to the modal background
-    if (typeof e !== 'undefined') {
-        e.stopPropagation();
-    }
+    e.stopPropagation();
+}
 
+saleModalBG.onclick = saleClose.onclick = function() {
     saleModal.addEventListener('animationend', (e) => {
         if (e.animationName === 'zoomaway') {
             saleModalBG.style.display = "none";
-            $("body").removeClass("noscroll");
-            $("html").removeClass("noscroll");
+            unlockScrollPos();
             saleModal.classList.remove('zoomaway');
         }
     }, true);
@@ -60,8 +59,7 @@ var captionText = document.getElementById("caption");
 for (i = 0; i < wipimgs.length; i++) {
     wipimgs[i].index = i;
     wipimgs[i].onclick = function() {
-        $("body").addClass("noscroll");
-        $("html").addClass("noscroll");
+        lockScrollPos();
         $(".modal-content").addClass("zoomanim");
         modal.style.display = "block";
         modalImg.src = this.src;
@@ -86,8 +84,7 @@ span.onclick = modal.onclick = function() {
     modalImg.addEventListener('animationend', (e) => {
         if (e.animationName === 'zoomaway') {
             modal.style.display = "none";
-            $("body").removeClass("noscroll");
-            $("html").removeClass("noscroll");
+            unlockScrollPos();
             $('.modal-content').removeClass('zoomaway');
             captionText.classList.remove('zoomaway');
         }
@@ -150,15 +147,13 @@ $(function() {
             right.onclick();
         } else {
             modal.style.display = "none";
-            $("body").removeClass("noscroll");
-            $("html").removeClass("noscroll");
+            unlockScrollPos();
         }
     }
   });
 });
 
 // Handle arrow keys
-
 window.addEventListener("keydown", function (event) {
     if (event.defaultPrevented) {
         return;
@@ -173,8 +168,7 @@ window.addEventListener("keydown", function (event) {
             break;
         case "Escape":
             modal.style.display = "none";
-            $("body").removeClass("noscroll");
-            $("html").removeClass("noscroll");
+            unlockScrollPos();
             break;
         default:
             return;
@@ -182,3 +176,30 @@ window.addEventListener("keydown", function (event) {
 
     event.preventDefault();
 }, true);
+
+/*
+ *
+ * Lock scrolling, maintain page spot
+ *
+ */
+
+function lockScrollPos() {
+    // lock scroll position, but retain settings for later
+    var scrollPosition = [
+        self.pageXOffset || document.documentElement.scrollLeft || document.body.scrollLeft,
+        self.pageYOffset || document.documentElement.scrollTop  || document.body.scrollTop
+    ];
+    var html = $('html'); // it would make more sense to apply this to body, but IE7 won't have that
+    html.data('scroll-position', scrollPosition);
+    html.data('previous-overflow', html.css('overflow'));
+    html.css('overflow', 'hidden');
+    window.scrollTo(scrollPosition[0], scrollPosition[1]);
+};
+
+function unlockScrollPos() {
+    // un-lock scroll position
+    var html = jQuery('html');
+    var scrollPosition = html.data('scroll-position');
+    html.css('overflow', html.data('previous-overflow'));
+    window.scrollTo(scrollPosition[0], scrollPosition[1])
+};

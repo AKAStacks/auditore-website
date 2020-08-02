@@ -13,11 +13,6 @@
 	--active-accent-color: #37638e;
 }
 
-.noscroll {
-	height: 100%;
-	overflow: hidden;
-}
-
 .auditore {
 	font-size: 6em;
 	color: #ffffff;
@@ -1459,13 +1454,15 @@ input, select, textarea {
 	grid-column-start: 1;
 	grid-column-end: 1;
 
-	grid-row-start: 2;
+	grid-row-start: 1;
 	grid-row-end: 5;
 
 	margin-top: 15px;
 
 	height: 100%;
 	object-fit: cover;
+
+	max-width: 100%;
 
 	border-radius: 5px;
 }
@@ -1499,4 +1496,45 @@ input, select, textarea {
 	grid-column: 3;
 	grid-row: 1;
 	text-align: right;
+}
+
+#dating-specs {
+	grid-column: 2 span 1;
+	grid-row: 3;
+
+	text-align: left;
+	line-height: 1em;
+}
+
+#dating-specs li {
+	font-size: .75em;
+}
+
+#dating-price-label {
+	font-size: .75em;
+
+	grid-column: 2;
+	grid-row: 4;
+
+	text-align: left;
+	line-height: .75em;
+}
+
+#dating-price-tag {
+	font-size: 1.25em;
+
+	grid-column: 2;
+	grid-row: 4;
+
+	margin-top: .4em;
+
+	text-align: left;
+	line-height: 1.25em;
+}
+
+#paypal-button-container {
+	grid-column: 3;
+	grid-row: 4 span 1;
+
+	vertical-align: bottom;
 }
