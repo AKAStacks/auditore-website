@@ -1495,7 +1495,14 @@ input, select, textarea {
 #dating-close {
 	grid-column: 3;
 	grid-row: 1;
+
+	font-size: 2em;
+
 	text-align: right;
+}
+
+#dating-close:hover {
+	color: var(--accent-color);
 }
 
 #dating-specs {
