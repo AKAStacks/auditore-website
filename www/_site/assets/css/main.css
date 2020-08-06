@@ -173,7 +173,6 @@ input, select, textarea {
 			h2.alt strong {
 				font-weight: 600;
 				text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.4);
-				// color: #666;
 			}
 
 	h3 {
@@ -1246,17 +1245,17 @@ input, select, textarea {
   }
 }
 
-/* The Modal (background) */
-.two img:hover {
+.two img:hover, .four img:hover {
 	opacity: 0.7;
 	transition: 0.3s;
 }
 
-.two img {
+.two img, .four img {
 	height: 250px;
 	object-fit: cover;
 }
 
+/* The Modal (background) */
 .modal {
   display: none; /* Hidden by default */
   position: fixed; /* Stay in place */
@@ -1270,6 +1269,7 @@ input, select, textarea {
   background-color: rgb(0,0,0); /* Fallback color */
   background-color: rgba(0,0,0,0.9); /* Black w/ opacity */
   text-align: center;
+  transition: 0.3s;
 }
 
 /* Modal Content (Image) */
@@ -1347,7 +1347,7 @@ input, select, textarea {
 
 
 /* The Close Button */
-.close {
+.close, #dating-close {
   position: absolute;
   top: 15px;
   right: 35px;
@@ -1359,7 +1359,7 @@ input, select, textarea {
 
 .close:hover,
 .close:focus {
-  color: #bbb;
+  color: var(--accent-color);
   text-decoration: none;
   cursor: pointer;
 }
@@ -1393,19 +1393,10 @@ input, select, textarea {
 }
 
 
-/* 100% Image Width on Smaller Screens */
-@media only screen and (max-width: 700px){
-.modal-content {
-	max-width: unset;
-	max-height: unset;
-    width: 95%;
-  }
-}
-
 /* Touch devices */
 
 @media (hover: none) {
-    /* ... */
+	/* ... */
 }
 
 /* "Dating Profiles" */
@@ -1430,9 +1421,9 @@ input, select, textarea {
   top: 50%;
   left: 50%;
   margin-top: -35vh;
-  margin-left: -35vw;
+  margin-left: -40vw;
   vertical-align: middle;
-  width: 70vw; /* Full width */
+  width: 80vw; /* Full width */
   height: 70vh; /* Full height */
   overflow: hidden; /* Enable scroll if needed */
   background-color: rgba(255,255,255,.99); /* Black w/ opacity */
@@ -1442,28 +1433,28 @@ input, select, textarea {
 
 #dating-name {
 	font-family: 'Dancing Script', cursive;
-	grid-column-start: 1;
+	grid-column-start: 2;
 	grid-column-end: 3;
 
 	grid-row-start: 1;
 	grid-row-end: 1;
 
+	font-size: 2em;
+
 	text-align: center;
 }
 
 #dating-img {
-	grid-column-start: 1;
-	grid-column-end: 1;
+	grid-column: 1;
 
-	grid-row-start: 1;
-	grid-row-end: 5;
-
-	margin-top: 15px;
-
-	height: 100%;
+	grid-row: 1 / 6;
 	object-fit: cover;
 
+	min-width: 250px;
+
+	max-height: 100%;
 	max-width: 100%;
+	vertical-align: middle;
 
 	border-radius: 5px;
 }
@@ -1475,47 +1466,38 @@ input, select, textarea {
 	grid-row-start: 2;
 	grid-row-end: 2;
 
-	margin-top: 15px;
-
 	text-align: left;
-	font-size: .75em;
-	line-height: 1em;
+	font-size: 1em;
+	line-height: 1.25em;
 }
 
 #dating-modal-int {
-    display: grid;
-	grid-gap: 5px;
-	grid-template-rows: 1em auto auto auto 10%;
-	grid-template-columns: 25% 50% 25%;
+	display: grid;
+	grid-row-gap: 1em;
+	grid-column-gap: 2em;
+	grid-template-rows: 2em auto auto auto auto;
+	grid-template-columns: repeat(auto-fit, minmax(33%, 1fr));
 
-	padding: .5em 1em .5em 1em;
-    width: 100%;
+	padding: 1em 1em .5em 1em;
+	width: 100%;
 	height: 100%;
-}
-
-#dating-close {
-	grid-column: 3;
-	grid-row: 1;
-
-	font-size: 2em;
-
-	text-align: right;
 }
 
 #dating-close:hover {
 	color: var(--accent-color);
+	transition: 0.5s;
 }
 
 #dating-specs {
-	grid-column: 2 span 1;
+	grid-column: 2;
 	grid-row: 3;
 
 	text-align: left;
-	line-height: 1em;
+	line-height: 1.25em;
 }
 
 #dating-specs li {
-	font-size: .75em;
+	font-size: 1em;
 }
 
 #dating-price-label {
@@ -1541,8 +1523,30 @@ input, select, textarea {
 }
 
 #paypal-button-container {
-	grid-column: 3;
-	grid-row: 4 span 1;
+	grid-column: 2;
+	grid-row: 5;
 
 	vertical-align: bottom;
+}
+
+/* 100% Image Width on Smaller Screens */
+@media only screen and (max-width: 700px){
+	.modal-content {
+		max-width: unset;
+		max-height: unset;
+		width: 95%;
+	}
+
+	.dating-modal {
+		width: 100%;
+		height: 100%;
+		max-width: unset;
+		max-height: unset;
+		margin-top: -50vh;
+		margin-left: -50vw;
+	}
+
+	.dating-name {
+		font-size: 1em;
+	}
 }
