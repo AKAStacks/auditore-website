@@ -1,4 +1,4 @@
 ---
-title: My page
+title: Auditore Custom Instruments
 layout: default
 ---
