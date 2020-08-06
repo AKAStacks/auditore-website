@@ -1270,6 +1270,7 @@ input, select, textarea {
   background-color: rgba(0,0,0,0.9); /* Black w/ opacity */
   text-align: center;
   transition: 0.3s;
+  overflow-x: hidden;
 }
 
 /* Modal Content (Image) */
@@ -1314,6 +1315,26 @@ input, select, textarea {
   animation-duration: 0.3s;
 }
 
+.fadein {
+	animation-name: fadein;
+	animation-duration: 0.6s;
+}
+
+.fadeout {
+	animation-name: fadeout;
+	animation-duration: 0.6s;
+}
+
+@keyframes fadein {
+	from {opacity:0}
+	to {opacity:1}
+}
+
+@keyframes fadeout {
+	from {opacity:1}
+	to {opacity:0}
+}
+
 @keyframes zoom {
   from {transform:scale(0)}
   to {transform:scale(1)}
@@ -1355,6 +1376,34 @@ input, select, textarea {
   font-size: 40px;
   font-weight: bold;
   transition: 0.3s;
+}
+
+/* The Left and Right Buttons */
+#dating-left, #dating-right {
+  color: rgba(0,0,0,0.5);
+  font-size: 40px;
+  font-weight: bold;
+  transition: 0.3s;
+  position: absolute;
+  top: 50vh;
+  z-index: 2;
+}
+
+#dating-left {
+	left: 35px;
+}
+
+#dating-right {
+	right: 35px;
+}
+
+#dating-left:hover,
+#dating-right:hover,
+#dating-left:focus,
+#dating-right:focus {
+  color: var(--active-accent-color);
+  text-decoration: none;
+  cursor: pointer;
 }
 
 .close:hover,
@@ -1451,7 +1500,7 @@ input, select, textarea {
 	grid-row: 1 / 6;
 	object-fit: cover;
 
-	max-height: 100%;
+	max-height: 80vh;
 	max-width: 90%;
 	vertical-align: middle;
 
@@ -1483,8 +1532,12 @@ input, select, textarea {
 	height: 100%;
 }
 
+#dating-close {
+	color: rgba(0,0,0,.5);
+}
+
 #dating-close:hover {
-	color: var(--accent-color);
+	color: var(--active-accent-color);
 	transition: 0.5s;
 }
 

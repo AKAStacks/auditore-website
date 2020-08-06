@@ -5,14 +5,16 @@
  *
  */
 
-var i;
-var saleImgs = forsale.getElementsByTagName("img");
-var saleModalBG = document.getElementsByClassName("dating-container")[0];
-var saleModal = document.getElementById("dating-modal");
-var saleModalImg = document.getElementById("dating-img");
-var saleModalInt = document.getElementById("dating-modal-int");
-var saleCaptions = forsale.getElementsByTagName("h3");
-var saleClose = document.getElementById("dating-close");
+(function () {
+
+let i;
+let saleImgs = forsale.getElementsByTagName("img");
+let saleModalBG = document.getElementsByClassName("dating-container")[0];
+let saleModal = document.getElementById("dating-modal");
+let saleModalImg = document.getElementById("dating-img");
+let saleModalInt = document.getElementById("dating-modal-int");
+let saleCaptions = forsale.getElementsByTagName("h3");
+let saleClose = document.getElementById("dating-close");
 
 for (i = 0; i < saleImgs.length; i ++) {
     saleImgs[i].index = i;
@@ -40,6 +42,7 @@ saleModalBG.onclick = saleClose.onclick = function() {
     }, true);
     saleModal.classList.add('zoomaway');
 }
+})();
 
 /*
  *
@@ -48,18 +51,21 @@ saleModalBG.onclick = saleClose.onclick = function() {
  *
 */
 
-var modal = document.getElementsByClassName("modal")[0];
+(function () {
+let modal = document.getElementsByClassName("modal")[0];
 
 // Get the image and insert it inside the modal - use its "alt" text as a caption
-var wipimgs = portfolio.getElementsByTagName("img");
-var captions = portfolio.getElementsByTagName("h3");
-var modalImg = document.getElementById("img01");
-var captionText = document.getElementById("caption");
+let wipimgs = portfolio.getElementsByTagName("img");
+let captions = portfolio.getElementsByTagName("h3");
+let modalImg = document.getElementById("img01");
+let captionText = document.getElementById("caption");
 
 for (i = 0; i < wipimgs.length; i++) {
     wipimgs[i].index = i;
     wipimgs[i].onclick = function() {
         lockScrollPos();
+        modal.classList.remove('fadeout');
+        modal.classList.add('fade');
         $(".modal-content").addClass("zoomanim");
         modal.style.display = "block";
         modalImg.src = this.src;
@@ -69,10 +75,10 @@ for (i = 0; i < wipimgs.length; i++) {
 }
 
 // Get the <span> element that closes the modal
-var span = document.getElementsByClassName("close")[0];
+let span = document.getElementsByClassName("close")[0];
 
-var left = document.getElementById("left");
-var right = document.getElementById("right");
+let left = document.getElementById("left");
+let right = document.getElementById("right");
 
 // When the user clicks on <span> (x), close the modal
 span.onclick = modal.onclick = function() {
@@ -91,6 +97,8 @@ span.onclick = modal.onclick = function() {
     }, true);
     modalImg.classList.add('zoomaway');
     captionText.classList.add('zoomaway');
+    modal.classList.remove('fadein');
+    modal.classList.add('fadeout');
 }
 
 // When the user clicks left or right, do something;
@@ -135,7 +143,7 @@ left.onclick = right.onclick = function(e) {
         modalImg.index = wipimgs.length - 1;
     };
 }
-
+})();
 // Handle Swipes
 $(function() {
   $(".modal").swipe( {
