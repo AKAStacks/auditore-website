@@ -20,7 +20,7 @@ for (i = 0; i < saleImgs.length; i ++) {
         lockScrollPos();
         saleModal.classList.add("zoomanim");
         document.getElementById("dating-name").innerHTML = saleCaptions[this.index].innerHTML;
-        saleModalBG.style.display = "block";
+        saleModalBG.style.display = "grid";
         saleModalImg.src = this.src;
     }
 }

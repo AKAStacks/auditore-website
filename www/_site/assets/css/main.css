@@ -1403,6 +1403,7 @@ input, select, textarea {
 
 .dating-container {
   display: none; /* Hidden by default */
+  place-items: center;
   position: fixed; /* Stay in place */
   z-index: 1; /* Sit on top */
   left: 0;
@@ -1417,14 +1418,14 @@ input, select, textarea {
 }
 
 .dating-modal {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  margin-top: -35vh;
-  margin-left: -40vw;
-  vertical-align: middle;
-  width: 80vw; /* Full width */
-  height: 70vh; /* Full height */
+  display: inline-block;
+
+  height: min-content; /* Full height */
+  width: min-content;
+
+  min-width: 700px;
+  max-width: 100%;
+ 
   overflow: hidden; /* Enable scroll if needed */
   background-color: rgba(255,255,255,.99); /* Black w/ opacity */
   border-radius: 10px;
@@ -1432,14 +1433,14 @@ input, select, textarea {
 }
 
 #dating-name {
+	display: inline-block;
 	font-family: 'Dancing Script', cursive;
-	grid-column-start: 2;
-	grid-column-end: 3;
+	grid-column: 2;
 
-	grid-row-start: 1;
-	grid-row-end: 1;
+	grid-row: 1;
 
 	font-size: 2em;
+	line-hight: 2em;
 
 	text-align: center;
 }
@@ -1450,10 +1451,8 @@ input, select, textarea {
 	grid-row: 1 / 6;
 	object-fit: cover;
 
-	min-width: 250px;
-
 	max-height: 100%;
-	max-width: 100%;
+	max-width: 90%;
 	vertical-align: middle;
 
 	border-radius: 5px;
@@ -1467,18 +1466,19 @@ input, select, textarea {
 	grid-row-end: 2;
 
 	text-align: left;
-	font-size: 1em;
+	font-size: .75em;
 	line-height: 1.25em;
 }
 
 #dating-modal-int {
 	display: grid;
-	grid-row-gap: 1em;
-	grid-column-gap: 2em;
-	grid-template-rows: 2em auto auto auto auto;
-	grid-template-columns: repeat(auto-fit, minmax(33%, 1fr));
+	place-items: center;
+	grid-row-gap: .25em;
+	grid-column-gap: 1em;
+	grid-template-rows: auto auto auto auto auto;
+	grid-template-columns: repeat(auto-fit, minmax(250px, 100%));
 
-	padding: 1em 1em .5em 1em;
+	padding: 1em;
 	width: 100%;
 	height: 100%;
 }
@@ -1492,6 +1492,7 @@ input, select, textarea {
 	grid-column: 2;
 	grid-row: 3;
 
+	font-size: .75em;
 	text-align: left;
 	line-height: 1.25em;
 }
@@ -1506,7 +1507,6 @@ input, select, textarea {
 	grid-column: 2;
 	grid-row: 4;
 
-	text-align: left;
 	line-height: .75em;
 }
 
@@ -1530,11 +1530,16 @@ input, select, textarea {
 }
 
 /* 100% Image Width on Smaller Screens */
-@media only screen and (max-width: 700px){
+@media only screen and (max-width: 900px){
 	.modal-content {
 		max-width: unset;
 		max-height: unset;
 		width: 95%;
+	}
+
+	.dating-modal-int * {
+		grid-column: 1 !important;
+		grid-row: unset;
 	}
 
 	.dating-modal {
