@@ -10,22 +10,11 @@
 
             {% for guitar in site.for_sale %}
             <article class="item">
-                <img src={{ guitar.profilepic }} loading="lazy" class="image fit" alt="" />
+                <!--{% increment sale_index %}-->
+                <img src="{{ guitar.profilepic }}" loading="lazy" class="image fit" alt="" />
                 <header>
                     <h3>{{ guitar.name }}</h3>
                 </header>
-                <script>
-                 this.name = {{ guitar.name }}
-                 this.strings = {{ guitar.strings }}
-                 this.pickups = {{ guitar.pickups }}
-                 this.pots = {{ guitar.pots }}
-                 this.fretboard = {{ guitar.fretboard }}
-                 this.tuners = {{ guitar.tuners }}
-                 this.body = {{ guitar.body }}
-                 this.faceplate = {{ guitar.faceplate }}
-                 this.neck = {{ guitar.neck }}
-                 this.price = {{ guitar.price }}
-                </script>
             </article>
             {% endfor %}
         </div>
