@@ -1,13 +1,11 @@
 /*
  *
- * Modals based on example from w3.com
  * For Sale modal
  *
  */
 
 (function () {
 
-let i;
 let saleImgs = forsale.getElementsByTagName("img");
 let saleModalBG = document.getElementsByClassName("dating-container")[0];
 let saleModal = document.getElementById("dating-modal");
@@ -19,15 +17,15 @@ let saleClose = document.getElementById("dating-close");
 for (i = 0; i < saleImgs.length; i ++) {
     saleImgs[i].index = i;
     saleImgs[i].onclick = function() {
+        let curGuitIndex = "guit" + (this.index);
+        let curGuit = document.getElementsByClassName(curGuitIndex)[0];
         lockScrollPos();
         saleModal.classList.add("zoomanim");
 
-        document.getElementById("dating-name").innerHTML = saleCaptions[this.index].innerHTML;
+        guitPopulate(curGuit);
 
         saleModalBG.style.display = "grid";
         saleModalImg.src = this.src;
-
-
 
         window["saleIndex"] = this.index;
     }
@@ -76,28 +74,47 @@ left.onclick = right.onclick = function(e) {
         window["saleIndex"] -= 1;
     };
 
+    // Round-robin
+    if (window["saleIndex"] >= saleImgs.length) {
+        window["saleIndex"] = 0;
+    } else if (window["saleIndex"] < 0) {
+        window["saleIndex"] = saleImgs.length - 1;
+    };
 
     oldModal.addEventListener("animationend", function (e) {
         oldModal.parentNode.removeChild(oldModal);
         saleModalBG.appendChild(newOne);
-        saleModalImg = document.getElementById("dating-img");
         saleModal = newOne;
-
-        saleModalImg.src = saleImgs[window["saleIndex"]].src;
+        let newGuitClass = "guit" + window["saleIndex"];
+        let newGuit = document.getElementsByClassName(newGuitClass)[0];
+        console.log(newGuitClass);
+        guitPopulate(newGuit);
     }, false);
 
-    // Round-robin
-    if (window["saleIndex"].index >= saleImgs.length) {
-        window["saleIndex"].index = 0;
-    } else if (window["saleIndex"].index < 0) {
-        window["saleIndex"].index = saleImgs.length - 1;
-    };
 }
 })();
 
+function guitPopulate(curGuit) {
+    // This function is stupidly specific--good luck using it.
+    // Actually, just call it after the old modal has disappeared and you'll be good.
+    $("#dating-name").html(curGuit.name);
+    $("#dating-price-tag").html(curGuit.price);
+    $("#dating-desc").html(curGuit.desc);
+    $("#dating-img").attr("src", curGuit.profilepic);
+
+    $("#strings").html(curGuit.strings + " strings");
+    $("#frettype").html(curGuit.frettype + " frets");
+    $("#scalelength").html(curGuit.scalelength + " scale length");
+    $("#woodbody").html(curGuit.woodbody + " body");
+    $("#woodfretboard").html(curGuit.woodfretboard + " fret-board");
+    $("#woodneck").html(curGuit.woodneck + " neck");
+    $("#pickups").html(curGuit.pickups + " pickups");
+    $("#pots").html(curGuit.pots + " pots");
+    $("#tuners").html(curGuit.tuners + " tuners");
+}
+
 /*
  *
- * Modals based on example from w3.com
  * WIP Modal
  *
 */
@@ -195,7 +212,12 @@ left.onclick = right.onclick = function(e) {
     };
 }
 })();
-// Handle Swipes
+
+/*
+ *
+ * Handle swipes
+ *
+ */
 $(function() {
   $(".modal").swipe( {
     //Generic swipe handler for all directions
@@ -223,7 +245,11 @@ $(function() {
   });
 });
 
-// Handle arrow keys
+/*
+ *
+ * Handle Arrow Keys
+ *
+ */
 window.addEventListener("keydown", function (event) {
     let left;
     let right;

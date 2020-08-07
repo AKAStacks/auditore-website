@@ -81,15 +81,59 @@
         <p>Have a look at these pre-built guitars, hot and ready to be shipped to you!</p>
 
         <div class="grid">
-
             
-            <article class="item">
-                <!--1-->
+            
+            <article class="item guit0">
                 <img src="images/guitars/atanas/guit01.jpg" loading="lazy" class="image fit" alt="" />
                 <header>
                     <h3>The Atanas 8-String</h3>
                 </header>
+                <script>
+                 (function () {
+                     let guit = document.getElementsByClassName("guit0")[0];
+                     guit.name = "The Atanas 8-String";
+                     guit.strings = "8";
+                     guit.frettype = "Fanned";
+                     guit.scalelength = "9000 in";
+                     guit.woodbody = "A";
+                     guit.woodfretboard = "B";
+                     guit.woodneck = "C";
+                     guit.pickups = "ASDF";
+                     guit.pots = "1,000,000 ohm";
+                     guit.tuners = "Enchanted";
+                     guit.desc = "Our first line of instruments, the Atanas 8-string features a rich, deep tone and enormous range.";
+                     guit.price = "$1,799";
+                     guit.profilepic = "images/guitars/atanas/guit01.jpg";
+                 })();
+                </script>
             </article>
+            
+            
+            <article class="item guit1">
+                <img src="images/guitars/untitled/front.jpg" loading="lazy" class="image fit" alt="" />
+                <header>
+                    <h3>Untitled</h3>
+                </header>
+                <script>
+                 (function () {
+                     let guit = document.getElementsByClassName("guit1")[0];
+                     guit.name = "Untitled";
+                     guit.strings = "6";
+                     guit.frettype = "Standard";
+                     guit.scalelength = "25.5 in";
+                     guit.woodbody = "American Walnut";
+                     guit.woodfretboard = "Flamed Maple";
+                     guit.woodneck = "Curly Maple";
+                     guit.pickups = "Vintage Inspired TBD";
+                     guit.pots = "500,000 ohm";
+                     guit.tuners = "Gotoh Silver Locking";
+                     guit.desc = "A vintage inspired guitar with a classic jaguar-look, the Untitled is just that--whatever you make it.";
+                     guit.price = "$1,799";
+                     guit.profilepic = "images/guitars/untitled/front.jpg";
+                 })();
+                </script>
+            </article>
+            
             
         </div>
     </div>
@@ -230,11 +274,15 @@
             <span id="dating-name"></span>
             <span id="dating-desc">Our first line of instruments, the Atanas 8-string features a rich, deep tone and enormous range.</span>
             <ul id="dating-specs">
-                <li id="strings">Strings: 8</li>
-                <li id="pickups">Pickups: Them Badass Ones lol</li>
-                <li id="pots">Pots: 1,000,000 Ω</li>
-                <li id="fretboard">Fretboard: Tilted, brah</li>
-                <li id="action">Action: .00001mm</li>
+                <li id="strings"></li>
+                <li id="frettype"></li>
+                <li id="scalelength"></li>
+                <li id="woodbody"></li>
+                <li id="woodfretboard"></li>
+                <li id="woodneck"></li>
+                <li id="pickups"></li>
+                <li id="pots"></li>
+                <li id="tuners"></li>
             </ul>
             <span id="dating-price-tag">$1,799</span>
             <!-- <div id="paypal-button-container"></div>

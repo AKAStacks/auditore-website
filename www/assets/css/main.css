@@ -1489,8 +1489,8 @@ input, select, textarea {
 	grid-row: 1;
 
 	font-size: 2em;
-	line-hight: 2em;
 
+	margin-bottom: .75em;
 	text-align: center;
 }
 
@@ -1513,6 +1513,8 @@ input, select, textarea {
 
 	grid-row-start: 2;
 	grid-row-end: 2;
+
+	margin-bottom: 1em;
 
 	text-align: left;
 	font-size: .75em;

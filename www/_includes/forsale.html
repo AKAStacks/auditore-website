@@ -7,15 +7,33 @@
         <p>Have a look at these pre-built guitars, hot and ready to be shipped to you!</p>
 
         <div class="grid">
-
+            {% assign sale_index = 0 %}
             {% for guitar in site.for_sale %}
-            <article class="item">
-                <!--{% increment sale_index %}-->
+            <article class="item guit{{ sale_index }}">
                 <img src="{{ guitar.profilepic }}" loading="lazy" class="image fit" alt="" />
                 <header>
                     <h3>{{ guitar.name }}</h3>
                 </header>
+                <script>
+                 (function () {
+                     let guit = document.getElementsByClassName("guit{{ sale_index }}")[0];
+                     guit.name = "{{ guitar.name }}";
+                     guit.strings = "{{ guitar.specs.strings }}";
+                     guit.frettype = "{{ guitar.specs.fretboard }}";
+                     guit.scalelength = "{{ guitar.specs.scalelength }}";
+                     guit.woodbody = "{{ guitar.specs.woods.body }}";
+                     guit.woodfretboard = "{{ guitar.specs.woods.fretboard }}";
+                     guit.woodneck = "{{ guitar.specs.woods.neck }}";
+                     guit.pickups = "{{ guitar.specs.hardware.pickups }}";
+                     guit.pots = "{{ guitar.specs.hardware.pots }}";
+                     guit.tuners = "{{ guitar.specs.hardware.tuners }}";
+                     guit.desc = "{{ guitar.desc }}";
+                     guit.price = "{{ guitar.price }}";
+                     guit.profilepic = "{{ guitar.profilepic }}";
+                 })();
+                </script>
             </article>
+            {% assign sale_index = sale_index | plus: 1 %}
             {% endfor %}
         </div>
     </div>
