@@ -21,9 +21,14 @@ for (i = 0; i < saleImgs.length; i ++) {
     saleImgs[i].onclick = function() {
         lockScrollPos();
         saleModal.classList.add("zoomanim");
+
         document.getElementById("dating-name").innerHTML = saleCaptions[this.index].innerHTML;
+
         saleModalBG.style.display = "grid";
         saleModalImg.src = this.src;
+
+
+
         window["saleIndex"] = this.index;
     }
 }
@@ -78,9 +83,7 @@ left.onclick = right.onclick = function(e) {
         saleModalImg = document.getElementById("dating-img");
         saleModal = newOne;
 
-        console.log(saleModalImg.src);
         saleModalImg.src = saleImgs[window["saleIndex"]].src;
-        console.log(saleModalImg.src);
     }, false);
 
     // Round-robin
@@ -197,17 +200,16 @@ $(function() {
   $(".modal").swipe( {
     //Generic swipe handler for all directions
     swipe:function(event, direction, distance, duration, fingerCount, fingerData) {
+        let left;
+        let right;
 
-        if (document.getElementById("myModal").style.display !== "none") {
+        if (document.getElementById("myModal").style.display === "block") {
             left = document.getElementById("left");
             right = document.getElementById("right");
-        } else if (document.getElementById("dating-modal").style.display !== "none") {
+        } else if (document.getElementById("dating-container").style.display === "grid") {
             left = document.getElementById("dating-left");
             right = document.getElementById("dating-right");
-        } else {
-            return;
         }
-
 
         if (direction === "left") {
             left.onclick();
@@ -223,18 +225,19 @@ $(function() {
 
 // Handle arrow keys
 window.addEventListener("keydown", function (event) {
+    let left;
+    let right;
+
     if (event.defaultPrevented) {
         return;
     }
 
-    if (document.getElementById("myModal").style.display !== "none") {
+    if (document.getElementById("myModal").style.display === "block") {
         left = document.getElementById("left");
         right = document.getElementById("right");
-    } else if (document.getElementById("dating-modal").style.display !== "none") {
+    } else if (document.getElementById("dating-container").style.display === "grid") {
         left = document.getElementById("dating-left");
         right = document.getElementById("dating-right");
-    } else {
-        return;
     }
 
     switch (event.key) {
@@ -272,7 +275,7 @@ function lockScrollPos() {
 
 function unlockScrollPos() {
     // un-lock scroll position
-    let html = jQuery('html');
+    let html = $('html');
     let scrollPosition = html.data('scroll-position');
     html.css('overflow', html.data('previous-overflow'));
     window.scrollTo(scrollPosition[0], scrollPosition[1])
