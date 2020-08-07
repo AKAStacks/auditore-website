@@ -197,6 +197,18 @@ $(function() {
   $(".modal").swipe( {
     //Generic swipe handler for all directions
     swipe:function(event, direction, distance, duration, fingerCount, fingerData) {
+
+        if (document.getElementById("myModal").style.display !== "none") {
+            left = document.getElementById("left");
+            right = document.getElementById("right");
+        } else if (document.getElementById("dating-modal").style.display !== "none") {
+            left = document.getElementById("dating-left");
+            right = document.getElementById("dating-right");
+        } else {
+            return;
+        }
+
+
         if (direction === "left") {
             left.onclick();
         } else if (direction === "right") {
@@ -215,16 +227,22 @@ window.addEventListener("keydown", function (event) {
         return;
     }
 
+    if (document.getElementById("myModal").style.display !== "none") {
+        left = document.getElementById("left");
+        right = document.getElementById("right");
+    } else if (document.getElementById("dating-modal").style.display !== "none") {
+        left = document.getElementById("dating-left");
+        right = document.getElementById("dating-right");
+    } else {
+        return;
+    }
+
     switch (event.key) {
         case "ArrowLeft":
             left.onclick();
             break;
         case "ArrowRight":
             right.onclick();
-            break;
-        case "Escape":
-            modal.style.display = "none";
-            unlockScrollPos();
             break;
         default:
             return;
