@@ -24,6 +24,7 @@ for (i = 0; i < saleImgs.length; i ++) {
         document.getElementById("dating-name").innerHTML = saleCaptions[this.index].innerHTML;
         saleModalBG.style.display = "grid";
         saleModalImg.src = this.src;
+        window["saleIndex"] = this.index;
     }
 }
 
@@ -41,6 +42,53 @@ saleModalBG.onclick = saleClose.onclick = function() {
         }
     }, true);
     saleModal.classList.add('zoomaway');
+}
+
+let left = document.getElementById("dating-left");
+let right = document.getElementById("dating-right");
+
+// When the user clicks left or right, do something;
+left.onclick = right.onclick = function(e) {
+    // Figure out what index of wipimgs, then iterate +1, -1 or roundrobin
+
+    // Stop the event passing to the modal background
+    if (typeof e !== 'undefined') {
+        e.stopPropagation();
+    }
+
+    // Create clone to allow for repeat animation
+    let newOne = saleModal.cloneNode(true);
+    newOne.classList.remove('zoomanim');
+    newOne.classList.add('zoomfast');
+    let oldModal = saleModal;
+
+    // Left v. Right
+    if (this.attributes.Id.value === "dating-right") {
+        oldModal.classList.add("right-swipe-out");
+        window["saleIndex"] += 1;
+    } else {
+        oldModal.classList.add("left-swipe-out");
+        window["saleIndex"] -= 1;
+    };
+
+
+    oldModal.addEventListener("animationend", function (e) {
+        oldModal.parentNode.removeChild(oldModal);
+        saleModalBG.appendChild(newOne);
+        saleModalImg = document.getElementById("dating-img");
+        saleModal = newOne;
+
+        console.log(saleModalImg.src);
+        saleModalImg.src = saleImgs[window["saleIndex"]].src;
+        console.log(saleModalImg.src);
+    }, false);
+
+    // Round-robin
+    if (window["saleIndex"].index >= saleImgs.length) {
+        window["saleIndex"].index = 0;
+    } else if (window["saleIndex"].index < 0) {
+        window["saleIndex"].index = saleImgs.length - 1;
+    };
 }
 })();
 
@@ -193,11 +241,11 @@ window.addEventListener("keydown", function (event) {
 
 function lockScrollPos() {
     // lock scroll position, but retain settings for later
-    var scrollPosition = [
+    let scrollPosition = [
         self.pageXOffset || document.documentElement.scrollLeft || document.body.scrollLeft,
         self.pageYOffset || document.documentElement.scrollTop  || document.body.scrollTop
     ];
-    var html = $('html'); // it would make more sense to apply this to body, but IE7 won't have that
+    let html = $('html'); // it would make more sense to apply this to body, but IE7 won't have that
     html.data('scroll-position', scrollPosition);
     html.data('previous-overflow', html.css('overflow'));
     html.css('overflow', 'hidden');
@@ -206,8 +254,8 @@ function lockScrollPos() {
 
 function unlockScrollPos() {
     // un-lock scroll position
-    var html = jQuery('html');
-    var scrollPosition = html.data('scroll-position');
+    let html = jQuery('html');
+    let scrollPosition = html.data('scroll-position');
     html.css('overflow', html.data('previous-overflow'));
     window.scrollTo(scrollPosition[0], scrollPosition[1])
 };
