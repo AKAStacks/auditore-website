@@ -12,7 +12,12 @@ includes_dir        : _includes
 sass:
   sass_dir: _sass
 collections:
-  - for_sale
+  for_sale:
+    permalink: "/:collection/:path/"
+    output: "true"
+  wips:
+    permalink: "/:collection/:path/"
+    output: "true"
 
 # Handling Reading
 safe                : false
