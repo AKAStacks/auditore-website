@@ -1604,6 +1604,9 @@ body.modalBlur > *:not(#dating-container):not(#myModal) {
 	grid-column: 2;
 	grid-row: 5;
 
+	max-width: 20vw;
+	justify-self: right;
+	margin-right: 10em;
 	vertical-align: bottom;
 }
 
@@ -1681,4 +1684,9 @@ body.modalBlur > *:not(#dating-container):not(#myModal) {
 		grid-row: 6;
 		margin-bottom: .25em;
 	}
+}
+
+.left-justified {
+	grid-template-columns: unset !important;
+	place-items: unset !important;
 }
