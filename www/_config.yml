@@ -2,7 +2,7 @@ name: Auditore Custom Instruments
 
 
 # Where things are
-source              : .
+source              : . 
 destination         : ./_site
 collections_dir     : .
 plugins_dir         : _plugins
@@ -13,11 +13,9 @@ sass:
   sass_dir: _sass
 collections:
   for_sale:
-    permalink: "/:collection/:path/"
-    output: "true"
+   output: true
+   permalink: "/:collection/:name"
   wips:
-    permalink: "/:collection/:path/"
-    output: "true"
 
 # Handling Reading
 safe                : false

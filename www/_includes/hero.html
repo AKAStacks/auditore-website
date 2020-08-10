@@ -2,9 +2,15 @@
     <div class="container">
 
         <header>
-            <h3 class="auditore">Auditore</h3>
-            <h2 class="subauditore">Custom Instruments</h2>
+            <h3 class="auditore">{{ page.bigtitle }}</h3>
+            <h2 class="subauditore">{{ page.subtitle }}</h2>
         </header>
+
+        <style>
+         #main > section.one {
+             background-image: url("{{ page.heropic }}");
+         }
+        </style>
 
         <!-- <footer> -->
         <!--  <a href="#portfolio" class="button scrolly">Have a look!</a> -->

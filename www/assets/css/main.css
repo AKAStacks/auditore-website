@@ -838,7 +838,7 @@ input, select, textarea {
 
 			#main > section.one {
 				background-color: #81918E;
-				background-image: url("../../images/banner.jpg");
+				/* background-image: url("../../images/banner.jpg"); */
 				box-shadow: inset -0.25em 0 0.25em 0 rgba(0, 0, 0, 0.125);
 			}
 
@@ -1220,6 +1220,13 @@ input, select, textarea {
   transition: 0.3s;
 }
 
+body.modalBlur > *:not(#dating-container):not(#myModal) {
+	-webkit-filter: saturate(10%);
+  -webkit-filter: blur(8px);
+  filter: blur(5px);
+}
+
+
 #myImg:hover {opacity: 0.7;}
 
 /* Grid Portfolio */
@@ -1241,7 +1248,11 @@ input, select, textarea {
 
 @media only screen and (min-width: 992px){
   .grid {
-    grid-template-columns: repeat(3, 1fr);
+	{% if site.for_sale.size < 3 }
+      grid-template-columns: repeat({{ site.for_sale.size }}, 1fr);
+	{% else %}
+      grid-template-columns: repeat(3, 1fr);
+	{% endif %}
   }
 }
 
@@ -1577,6 +1588,18 @@ input, select, textarea {
 	line-height: 1.25em;
 }
 
+#feedMe {
+	font-size: 1.25em;
+
+	grid-column: 2;
+	grid-row: 5;
+
+	margin-top: .4em;
+
+	text-align: left;
+	line-height: 1.25em;
+}
+
 #paypal-button-container {
 	grid-column: 2;
 	grid-row: 5;
@@ -1592,21 +1615,70 @@ input, select, textarea {
 		width: 95%;
 	}
 
-	.dating-modal-int * {
-		grid-column: 1 !important;
-		grid-row: unset;
-	}
-
 	.dating-modal {
-		width: 100%;
-		height: 100%;
-		max-width: unset;
-		max-height: unset;
-		margin-top: -50vh;
-		margin-left: -50vw;
+		width: 100vw;
+		height: min-content;
+		max-width: 100vw;
+
+		overflow: scroll;
 	}
 
-	.dating-name {
+	#dating-modal-int {
+		grid-template-columns: 100%;
+		grid-template-rows: repeat(6, min-content);
+	    width: 100vw;
+		height: 100vh;
+		max-width: 100vw;
+		max-height: 100vh;
+	}
+
+	#dating-img {
+		margin-top: 1em;
+		margin-bottom: 1em;
+		display: inline-block;
+		grid-column: 1;
+		grid-row: 2;
+	}
+
+	#dating-name {
+		margin-top: 0.5em;
+		margin-bottom: 0;
+		grid-column: 1;
+		grid-row: 1;
+	}
+
+	#dating-left, #dating-right {
 		font-size: 1em;
+	}
+
+	#dating-left {
+		left: .5em;
+	}
+
+	#dating-right {
+		right: .5em;
+	}
+
+	#dating-desc {
+		font-size: 1em;
+		grid-column: 1;
+		grid-row: 3;
+	}
+
+	#dating-specs {
+		font-size: 1em;
+		grid-column: 1;
+		grid-row: 4;
+	}
+
+	#dating-price-tag {
+		grid-column: 1;
+		grid-row: 5;
+	}
+
+	#feedMe {
+		grid-column: 1;
+		grid-row: 6;
+		margin-bottom: .25em;
 	}
 }
