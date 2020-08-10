@@ -1,5 +1,5 @@
 ---
-name: Untitled
+name: The Untitled
 specs:
     strings: 6
     fretboard: Standard
@@ -15,5 +15,16 @@ specs:
         tuners: Gotoh Silver Locking
 desc: A vintage inspired guitar with a classic jaguar-look, the Untitled is just that--whatever you make it.
 price: $1,799
-profilepic: images/guitars/untitled/front.jpg
+profilepic: ../images/guitars/untitled/front.jpg
+
+heropic: ../images/guitars/atanas/hero.jpg
+bigtitle: The Untitled
+subtitle: 6 String
+
+images: ["../images/guitars/atanas/guit01.jpg", 
+"../images/guitars/atanas/hero.jpg",
+"../images/guitars/atanas/other.jpg"]
+
+layout: forsale
+output: true
 ---

@@ -1,1 +1,222 @@
+<!DOCTYPE HTML>
+<!--
+	Prologue by HTML5 UP adapted by @shit.dll
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+		<title>Untitled</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="icon" href="../favicon.png" type="image/png" />
+		<link rel="stylesheet" href="../assets/css/main.css" />
+	</head>
+	<body class="is-preload">
 
+		<!-- Sidebar -->
+		<div id="header">
+    <div class="top">
+        <!-- Logo -->
+            <div id="logo">
+                <span class="image avatar48"><img src="../../images/guitars/untitled/front.jpg" alt="" /></span>
+                <h1 id="title">Untitled</h1>
+                <p>Hot 'n' Ready</p>
+            </div>
+
+        <!-- Nav -->
+            <nav id="nav">
+                <ul>
+                    <li><a href="/index.html" id="top-link"><span class="icon solid fa-home">Back to Homepage</span></a></li>
+                    <li><a href="#forsale" id="forsale-link"><span class="icon solid fa-shopping-cart">Buy Now</span></a></li>
+                </ul>
+            </nav>
+    </div>
+
+    <div class="bottom">
+        <!-- Social Icons -->
+        <ul class="icons">
+    <!-- TODO: Do we want a Twitter? -->
+    <li><a href="#" class="icon brands fa-twitter"><span class="label">Twitter</span></a></li>
+    <li><a href="https://www.instagram.com/auditore.custom.instruments/" class="icon brands fa-instagram"><span class="label">Instagram</span></a></li>
+    <!-- TODO: NEED a Facebook page. -->
+    <li><a href="#" class="icon brands fa-facebook-f"><span class="label">Facebook</span></a></li>
+    <!-- TODO: Need domain. -->
+    <li><a href="#" class="icon solid fa-envelope"><span class="label">Email</span></a></li>
+</ul>
+
+    </div>
+</div>
+
+
+		<!-- Main -->
+			<div id="main">
+
+				<!-- Hero -->
+				<section id="top" class="one dark cover">
+    <div class="container">
+
+        <header>
+            <h3 class="auditore">The Untitled</h3>
+            <h2 class="subauditore">6 String</h2>
+        </header>
+
+        <style>
+         #main > section.one {
+             background-image: url("../images/guitars/atanas/hero.jpg");
+         }
+        </style>
+
+        <!-- <footer> -->
+        <!--  <a href="#portfolio" class="button scrolly">Have a look!</a> -->
+        <!--  </footer>-->
+
+    </div>
+</section>
+
+
+                <!-- Spec Sheet -->
+                <section class="three">
+                        <div id="dating-modal-int">
+                            <img id="dating-img" src="../images/guitars/untitled/front.jpg"></img>
+                            <div id="dating-name">The Untitled</div>
+                            <div id="dating-desc">A vintage inspired guitar with a classic jaguar-look, the Untitled is just that--whatever you make it.</div>
+                            <ul id="dating-specs">
+                                <li id="strings">6 strings</li>
+                                <li id="frettype">Standard frets</li>
+                                <li id="scalelength">25.5 in scale length</li>
+                                <li id="woodbody">American Walnut body</li>
+                                <li id="woodfretboard">Flamed Maple fretboard</li>
+                                <li id="woodneck">Curly Maple neck</li>
+                                <li id="pickups">Vintage Inspired TBD pickups</li>
+                                <li id="pots">500,000 ohm potentiometers</li>
+                                <li id="tuners">Gotoh Silver Locking tuners</li>
+                            </ul>
+                            <div id="dating-price-tag">$1,799</div>
+                            <div id="paypal-button-container"></div>
+                            <script src="https://www.paypal.com/sdk/js?client-id=sb&currency=USD" data-sdk-integration-source="button-factory"></script>
+                            <script>
+                            paypal.Buttons({
+                                style: {
+                                    shape: 'rect',
+                                    color: 'blue',
+                                    layout: 'vertical',
+                                    label: 'paypal',
+
+                                },
+                                createOrder: function(data, actions) {
+                                    return actions.order.create({
+                                        purchase_units: [{
+                                            amount: {
+                                                value: '$1,799'
+                                            }
+                                        }]
+                                    });
+                                },
+                                onApprove: function(data, actions) {
+                                    return actions.order.capture().then(function(details) {
+                                        alert('Transaction completed by ' + details.payer.name.given_name + '!');
+                                    });
+                                }
+                            }).render('#paypal-button-container');
+                            </script>
+                        </div>
+                </section>
+
+				<!-- More Pictures -->
+				<section id="portfolio" class="four">
+    <div class="container">
+
+        <header>
+            <h2>Photos</h2>
+        </header>
+
+        <div class="grid">
+            
+            <article class="item">
+                <img src="../images/guitars/atanas/guit01.jpg" loading="lazy" class="image fit" alt="" />
+            </article>
+            
+            <article class="item">
+                <img src="../images/guitars/atanas/hero.jpg" loading="lazy" class="image fit" alt="" />
+            </article>
+            
+            <article class="item">
+                <img src="../images/guitars/atanas/other.jpg" loading="lazy" class="image fit" alt="" />
+            </article>
+            
+        </div>
+    </div>
+</section>
+
+
+				<!-- Contact -->
+				<section id="contact" class="four">
+    <div class="container">
+
+        <header>
+            <h2>Contact Us</h2>
+        </header>
+
+        <p>We are happy to respond to any inquiries you may have! Either drop us a message using the form below,
+        or send us an e-mail directly. We look forward to hearing from you.</p>
+
+        <form method="post" action="#">
+            <div class="row">
+                <div class="col-6 col-12-mobile"><input type="text" name="name" placeholder="Name" /></div>
+                <div class="col-6 col-12-mobile"><input type="text" name="email" placeholder="E-mail Address" /></div>
+                <div class="col-12">
+                    <textarea name="message" placeholder="Message"></textarea>
+                </div>
+                <div class="col-12">
+                    <input type="submit" value="Send Message" />
+                </div>
+            </div>
+        </form>
+
+    </div>
+</section>
+
+
+			</div>
+
+		<!-- Footer -->
+		<div id="footer">
+    <!-- Copyright -->
+        <ul class="copyright">
+            <li>&copy; 2020 Auditore Custom Instruments.</li><li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
+        </ul>
+</div>
+
+
+		<!-- Photo Modal -->
+        <div id="myModal" class="modal">
+    <!-- The Close Button -->
+    <div id="gradient"></div>
+    <!-- Modal Caption (Image Text) -->
+    <div id="caption"></div>
+    <span class="close">&times;</span>
+
+    <!-- Arrow Buttons -->
+    <i id="left" class="fa fa-arrow-left"></i>
+
+    <i id="right" class="fa fa-arrow-right"></i>
+
+    <!-- Modal Content (The Image) -->
+    <span class="helper"></span>
+    <img class="modal-content" id="img01">
+</div>
+
+
+		<!-- Scripts -->
+			<script src="../assets/js/jquery.min.js"></script>
+			<script src="../assets/js/jquery.scrolly.min.js"></script>
+			<script src="../assets/js/jquery.scrollex.min.js"></script>
+			<script src="../assets/js/browser.min.js"></script>
+			<script src="../assets/js/breakpoints.min.js"></script>
+			<script src="../assets/js/main.js"></script>
+			<script src="../assets/js/util.js"></script>
+			<script src="../assets/js/jquery.touchSwipe.min.js"></script>
+			<script src="../assets/js/profile.js"></script>
+	</body>
+</html>
