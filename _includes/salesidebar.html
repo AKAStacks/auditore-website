@@ -1,0 +1,26 @@
+<div id="header">
+    <div class="top">
+        <!-- Logo -->
+            <div id="logo">
+                <span class="image avatar48"><img src="../{{ page.profilepic }}" alt="" /></span>
+                <h1 id="title">{{ page.title }}</h1>
+                <p>Hot 'n' Ready</p>
+            </div>
+
+        <!-- Nav -->
+            <nav id="nav">
+                <ul>
+                    <li><a href="/index.html" id="home-link"><span class="icon solid fa-home">Back to Homepage</span></a></li>
+                    <li><a href="#dating-modal-int" id="specs-link"><span class="icon solid fa-info-circle">Specifications</span></a></li>
+                    <li><a href="#portfolio" id="pics-link"><span class="icon solid fa-camera">Photos</span></a></li>
+                    <li><a href="#paypal-button-container" id="pay-link"><span class="icon solid fa-shopping-cart">Buy Now</span></a></li>
+                    <li><a href="#contact" id="contact-link"><span class="icon solid fa-envelope">Contact Us</span></a></li>
+                </ul>
+            </nav>
+    </div>
+
+    <div class="bottom">
+        <!-- Social Icons -->
+        {% include socialicons.html %}
+    </div>
+</div>
