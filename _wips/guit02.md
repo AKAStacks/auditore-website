@@ -1,4 +1,4 @@
 ---
 name: Guitar 02
-profilepic: /images/wips/guit02.jpg
+profilepic: "/images/wips/guit02.jpg"
 ---

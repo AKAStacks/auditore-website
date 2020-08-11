@@ -9,8 +9,8 @@
 		<title>{{ page.name }}</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-		<link rel="icon" href="../favicon.png" type="image/png" />
-		<link rel="stylesheet" href="../assets/css/main.css" />
+		<link rel="icon" href="{{ '/favicon.png' | relative_url }}" type="image/png" />
+		<link rel="stylesheet" href="{{ '/assets/css/main.css' | relative_url }}" />
 	</head>
 	<body class="is-preload">
 
@@ -26,7 +26,7 @@
                 <!-- Spec Sheet -->
                 <section class="three">
                         <div id="dating-modal-int" class="left-justified">
-                            <img id="dating-img" src="{{ page.profilepic }}"></img>
+                            <img id="dating-img" src="{{ page.profilepic | relative_url }}"></img>
                             <div id="dating-name">{{ page.name }}</div>
                             <div id="dating-desc">{{ page.desc }}</div>
                             <ul id="dating-specs">
@@ -40,7 +40,7 @@
                                 <li id="pots">{{ page.specs.hardware.pots }} potentiometers</li>
                                 <li id="tuners">{{ page.specs.hardware.tuners }} tuners</li>
                             </ul>
-                            <div id="dating-price-tag">{{ page.price }}</div>
+                            <div id="dating-price-tag">${{ page.price }}</div>
                             <div id="paypal-button-container"></div>
                             <script src="https://www.paypal.com/sdk/js?client-id=sb&currency=USD" data-sdk-integration-source="button-factory"></script>
                             <script>
