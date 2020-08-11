@@ -838,7 +838,6 @@ input, select, textarea {
 
 			#main > section.one {
 				background-color: #81918E;
-				/* background-image: url("../../images/banner.jpg"); */
 				box-shadow: inset -0.25em 0 0.25em 0 rgba(0, 0, 0, 0.125);
 			}
 
@@ -1228,6 +1227,15 @@ body.modalBlur > *:not(#dating-container):not(#myModal) {
 
 
 #myImg:hover {opacity: 0.7;}
+/* Flex WIPs */
+.flex {
+	display: flex;
+}
+
+.flex article {
+	flex: 0 1 33vw;
+	margin: 1em 1em 1.5em 1em;
+}
 
 /* Grid Portfolio */
 .grid {
@@ -1605,8 +1613,6 @@ body.modalBlur > *:not(#dating-container):not(#myModal) {
 	grid-row: 5;
 
 	max-width: 20vw;
-	justify-self: right;
-	margin-right: 10em;
 	vertical-align: bottom;
 }
 
