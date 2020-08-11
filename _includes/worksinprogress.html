@@ -10,7 +10,7 @@
         <div class="flex">
             {% for wip in site.wips %}
             <article class="item">
-                <img src="{{ wip.profilepic }}" loading="lazy" class="image fit" alt="" />
+                <img src="{{ wip.profilepic | relative_url }}" loading="lazy" class="image fit" alt="" />
                 <header>
                     <h3>{{ wip.name }}</h3>
                 </header>

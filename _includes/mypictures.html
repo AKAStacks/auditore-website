@@ -8,7 +8,7 @@
         <div class="grid">
             {% for image in page.images %}
             <article class="item">
-                <img src="{{ image }}" loading="lazy" class="image fit" alt="" />
+                <img src="{{ image | relative_url }}" loading="lazy" class="image fit" alt="" />
             </article>
             {% endfor %}
         </div>

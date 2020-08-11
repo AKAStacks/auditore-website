@@ -98,7 +98,7 @@ function guitPopulate(curGuit) {
     // This function is stupidly specific--good luck using it.
     // Actually, just call it after the old modal has disappeared and you'll be good.
     $("#dating-name").html(curGuit.name);
-    $("#dating-price-tag").html(curGuit.price);
+    $("#dating-price-tag").html("$" + curGuit.price);
     $("#dating-desc").html(curGuit.desc);
     $("#dating-img").attr("src", curGuit.profilepic);
 
