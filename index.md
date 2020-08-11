@@ -4,5 +4,5 @@ layout: default
 
 bigtitle: Auditore
 subtitle: Custom Instruments
-heropic: ../../images/banner.jpg
+heropic: "/images/banner.jpg"
 ---

@@ -10,7 +10,7 @@
             {% assign sale_index = 0 %}
             {% for guitar in site.for_sale %}
             <article class="item guit{{ sale_index }}">
-                <img src="{{ guitar.profilepic }}" loading="lazy" class="image fit" alt="" />
+                <img src="{{ guitar.profilepic | relative_url }}" loading="lazy" class="image fit" alt="" />
                 <header>
                     <h3>{{ guitar.name }}</h3>
                 </header>
@@ -29,8 +29,8 @@
                      guit.tuners = "{{ guitar.specs.hardware.tuners }}";
                      guit.desc = "{{ guitar.desc }}";
                      guit.price = "{{ guitar.price }}";
-                     guit.profilepic = "{{ guitar.profilepic }}";
-                     guit.pageurl = "{{ guitar.url }}";
+                     guit.profilepic = "{{ guitar.profilepic | relative_url }}";
+                     guit.pageurl = "{{ guitar.url | relative_url }}";
                  })();
                 </script>
             </article>
