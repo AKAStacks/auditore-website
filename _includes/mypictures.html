@@ -5,7 +5,7 @@
             <h2>Photos</h2>
         </header>
 
-        <div class="grid">
+        <div class="flex">
             {% for image in page.images %}
             <article class="item">
                 <img src="{{ image | relative_url }}" loading="lazy" class="image fit" alt="" />

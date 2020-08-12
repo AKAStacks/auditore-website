@@ -14,7 +14,7 @@ specs:
         pots: 500,000 ohm
         tuners: Gotoh Silver Locking
 desc: A vintage inspired guitar with a classic jaguar-look, the Untitled is just that--whatever you make it.
-price: 1,799
+price: "1,799"
 profilepic: "/images/guitars/untitled/front.jpg"
 
 heropic: "/images/guitars/atanas/hero.jpg"

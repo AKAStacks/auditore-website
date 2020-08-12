@@ -24,14 +24,13 @@
 }
 
 .auditore2 {
-	font-size: 4em;
+	font-size: 3em;
 	color: #ffffff;
 	display: inline;
 	vertical-align: middle;
 	opacity: 1;
 	font-family: 'Dancing Script', cursive;
 	text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.4);
-	line-height: 250px;
 }
 
 .subauditore {
@@ -344,11 +343,10 @@ input, select, textarea {
 
 		.image.featured {
 			display: inline-block;
-			height: 250px;
+			height: 5em;
 			width: 100%;
 			margin: 0 0 2em 0;
-			background-image: url("../../images/luth01.jpg");
-			box-shadow: inset 0 1px 0 0 rgba(0, 0, 0, 0.05), inset 0 0.1em 0.1em 0 rgba(0, 0, 0, 0.025), 0 0.1em 0.1em 0 rgba(0,0,0,0.025);
+			box-shadow: 0 0.1em 0.1em 0 rgba(0,0,0,0.25);
 		}
 
 		/* .image.featured img { */
@@ -1230,10 +1228,12 @@ body.modalBlur > *:not(#dating-container):not(#myModal) {
 /* Flex WIPs */
 .flex {
 	display: flex;
+	justify-content: center;
+	flex-wrap: wrap;
 }
 
 .flex article {
-	flex: 0 1 33vw;
+	flex: 0 0 250px;
 	margin: 1em 5px 1.5em 5px;
 }
 
@@ -1256,7 +1256,7 @@ body.modalBlur > *:not(#dating-container):not(#myModal) {
 
 @media only screen and (min-width: 992px){
   .grid {
-	{% if site.for_sale.size < 3 }
+	{% if site.for_sale.size < 3 %}
       grid-template-columns: repeat({{ site.for_sale.size }}, 1fr);
 	{% else %}
       grid-template-columns: repeat(3, 1fr);
@@ -1521,7 +1521,7 @@ body.modalBlur > *:not(#dating-container):not(#myModal) {
 
 	max-height: 80vh;
 	max-width: 90%;
-	vertical-align: middle;
+	justify-self: center;
 
 	border-radius: 5px;
 }
@@ -1592,7 +1592,7 @@ body.modalBlur > *:not(#dating-container):not(#myModal) {
 
 	margin-top: .4em;
 
-	text-align: left;
+	text-align: center;
 	line-height: 1.25em;
 }
 
@@ -1611,6 +1611,8 @@ body.modalBlur > *:not(#dating-container):not(#myModal) {
 #paypal-button-container {
 	grid-column: 2;
 	grid-row: 5;
+
+	justify-self: center;
 
 	max-width: 20vw;
 	vertical-align: bottom;
@@ -1689,6 +1691,20 @@ body.modalBlur > *:not(#dating-container):not(#myModal) {
 		grid-column: 1;
 		grid-row: 6;
 		margin-bottom: .25em;
+	}
+
+	#paypal-button-container {
+		grid-column: 1;
+		grid-row: 7;
+		margin-bottom: .25em;
+		max-width: unset;
+		align-self: center;
+	}
+
+	.three .left-justified {
+		place-items: center !important;
+		max-height: unset !important;
+		height: unset !important;
 	}
 }
 

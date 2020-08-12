@@ -55,7 +55,7 @@
 
 				var	$this = $(this),
 					id = $this.attr('href');
-				if (id === "/auditore-website/index.html") {
+				if (id === "/auditore-website/index.html" || id === "/index.html") {
 					return;
 				};
 				$section = $(id);
