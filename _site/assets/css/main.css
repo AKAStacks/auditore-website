@@ -1585,7 +1585,7 @@ body.modalBlur > *:not(#dating-container):not(#myModal) {
 }
 
 #dating-price-tag {
-	font-size: 1.25em;
+	font-size: 1.5em;
 
 	grid-column: 2;
 	grid-row: 4;
@@ -1612,9 +1612,8 @@ body.modalBlur > *:not(#dating-container):not(#myModal) {
 	grid-column: 2;
 	grid-row: 5;
 
+	max-width: 30vw;
 	justify-self: center;
-
-	max-width: 20vw;
 	vertical-align: bottom;
 }
 
@@ -1691,20 +1690,6 @@ body.modalBlur > *:not(#dating-container):not(#myModal) {
 		grid-column: 1;
 		grid-row: 6;
 		margin-bottom: .25em;
-	}
-
-	#paypal-button-container {
-		grid-column: 1;
-		grid-row: 7;
-		margin-bottom: .25em;
-		max-width: unset;
-		align-self: center;
-	}
-
-	.three .left-justified {
-		place-items: center !important;
-		max-height: unset !important;
-		height: unset !important;
 	}
 }
 
