@@ -21,9 +21,9 @@ heropic: "/images/guitars/atanas/hero.jpg"
 bigtitle: The Untitled
 subtitle: 6 String
 
-images: ["../images/guitars/atanas/guit01.jpg", 
-"../images/guitars/atanas/hero.jpg",
-"../images/guitars/atanas/other.jpg"]
+images: ["/images/guitars/atanas/guit01.jpg", 
+"/images/guitars/atanas/hero.jpg",
+"/images/guitars/atanas/other.jpg"]
 
 layout: forsale
 output: true
