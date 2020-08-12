@@ -1691,6 +1691,14 @@ body.modalBlur > *:not(#dating-container):not(#myModal) {
 		grid-row: 6;
 		margin-bottom: .25em;
 	}
+
+
+	#paypal-button-container {
+		grid-row: 7;
+
+		max-width: unset;
+	}
+
 }
 
 .left-justified {
