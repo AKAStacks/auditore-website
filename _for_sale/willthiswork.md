@@ -1,5 +1,5 @@
 ---
-layout: for_sale
+layout: forsale
 name: WillThisWork
 specs:
   profilepic: /images/uploads/screenshot_2019-05-05_11-09-07.png
