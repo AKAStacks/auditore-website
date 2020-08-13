@@ -54,3 +54,12 @@ collections:
         name: "images"
         widget: "list"
         field: { label: "Image", name: "image", widget: "image" }
+
+  - name: "wips"
+    label: "Works in Progress"
+    folder: "_wips"
+    create: true
+    slug: "{{fields.name}}"
+    fields:
+      - { label: "Caption", name: "name", widget: "string" }
+      - { label: "Image", name: "profilepic", widget: "image" }
