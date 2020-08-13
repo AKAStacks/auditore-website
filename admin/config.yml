@@ -1,0 +1,56 @@
+# Authorization & which git-branch 
+backend:
+  name: git-gateway
+  branch: master
+
+# Allows editing, etc. via Nelify
+# This line should *not* be indented
+publish_mode: editorial_workflow
+
+# This line should *not* be indented
+media_folder: "images/uploads" # Media files will be stored in the repo under images/uploads
+
+# Collections info.
+collections:
+  - name: "for_sale" # Used in routes, e.g., /admin/collections/blog
+    label: "For Sale" # Used in the UI
+    folder: "_for_sale" # The path to the folder where the documents are stored
+    create: true # Allow users to create new documents in this collection
+    slug: "{{fields.name}}" # Filename template, e.g., YYYY-MM-DD-title.md
+    fields: # The fields for each document, usually in front matter
+      - {label: "Layout", name: "layout", widget: "hidden", default: "for_sale"}
+      - {label: "Name", name: "name", widget: "string"}
+      - {label: "Specifications"
+        name: "specs"
+        widget: "object"
+        collapsed: false
+        fields:
+          - { label: "Strings", name: "strings", widget: "number" }
+          - { label: "Fretboard Style", name "fretboard", widget: "string", hint: "i.e. Fanned, Standard, or fretless" }
+          - { label: "Scale Length", name: "scalelength", widget: "string", hint: "include unit (e.g. 27.5 in)" }
+          - { label: "Woods"
+            name: "woods"
+            widget: "object"
+            collapsed: false
+            fields:
+              - { label: "Body", name: "body", widget: "string" }
+              - { label: "Fretboard", name: "fretboard", widget: "string" }
+              - { label: "Neck", name: "neck", widget: "string" }
+            }
+          - { label: "Hardware"
+            name: "hardware"
+            widget: "object"
+            collapsed: false
+            fields:
+              - { label: "Pickups", name: "pickups", widget: "string", hint: "Fender Hot Rod (the word 'pickups' will be automatically added to the end of this string." }
+              - { label: "Pots", name: "pots", widget: "string", hint: "(e.g. 500,000 ohm; 'pots' will be automatically added to the end of this string.)" }
+              - { label: "Tuners", name: "tuners", widget: "string", hint: "(e.g. Enchanted; 'tuners' will be automatically added to the end of this string.)" }
+            }
+          - { label: "Description", name: "desc", widget: "string", hint: "This is the guitar's 'bio'--get descriptive." }
+          - { label: "Price", name: "price", widget: "string", hint: "(e.g. 1,799.99; $ will be automatically prepended to this string)" }
+          - { label: "Profile Picture", name: "profilepic", widget: "image", hint: "This will be used to represent the guitar on the home page.", allow_multiple: false }
+          - { label: "Banner Picture", name: "heropic", widget: "image", hint: "This will be used as the big banner on the guitar's 'profile page.'" , allow_multiple: false }
+          - { label: "Big Title", name: "bigtitle", widget: "string", hint: "This will be written in a big cursive font superimposed over the Banner Picture on the guitar's 'profile page.' (e.g. 'The Atanas')" }
+          - { label: "Sub Title", name: "subtitle", widget: "string", hint: "This will be written in the smaller font, directly under-neath the Big Title on the guitar's 'profile page.' (e.g. '8 String')" }
+          - { label: "Other Images", name: "images", widget: "image", hint: "These will be the guitar's 'other images' as displayed on its 'profile page.'" , allow_multiple: true }
+        }
