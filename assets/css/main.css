@@ -1694,9 +1694,18 @@ body.modalBlur > *:not(#dating-container):not(#myModal) {
 
 
 	#paypal-button-container {
+		grid-column: 1;
 		grid-row: 7;
 
+		margin-bottom: .25em;
+		align-self: center;
 		max-width: unset;
+	}
+
+	.three .left-justified {
+		place-items: center !important;
+		max-height: unset !important;
+		height: unset !important;
 	}
 
 }
