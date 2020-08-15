@@ -12,9 +12,11 @@
 	
 	Jekyll static-site generator (https://jekyllrb.com/)
 	
+	Netlify "CMS" (https://www.netlify.com)
+	
 	(more included in Template Credits, see below)
 	
-	and thanks, as always, to w3schools.com & stackoverflow.com for their invaluable contributions to developers everywhere
+	and thanks, as always, to w3schools.com & stackoverflow.com for their invaluable contributions to web developers everywhere
 
 *** Template Credit (lkn.io)
 	Prologue by HTML5 UP
