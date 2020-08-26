@@ -1,20 +1,24 @@
 ---
 layout: forsale
-name: BettaWork
+name: Atelier 6-string
 specs:
-  strings: 11
-  fretboard: asdf
-  scalelength: ASSDAFDS
+  strings: 6
+  fretboard: Standard
+  scalelength: "25.1"
   woods:
-    body: asdf
-    fretboard: asdf
-    neck: asdf
+    body: Black Cherry
+    fretboard: Madagascar Ebony
+    neck: 5-ply Walnut with Cherry stripes
   hardware:
-    pickups: asdf
-    pots: asdf
-    tuners: asdf
-desc: asdf
-price: asdf
+    pickups: Your choice of
+    pots: 500k
+    tuners: Hipshot locking tuners
+desc: "The Atelier is an instrument for the inspired artist. Giving homage to
+  one of the most timeless shapes in Guitar history, while completely bringing
+  it into the present. Handmade, fully wooden, pick-guard is made from the same
+  American Walnut as the neck. The Curly Black Cherry body has a deep carve
+  making it incredibly comfortable. "
+price: "1799.99"
 profilepic: /images/uploads/dge5phquyaaz1cr.jpg
 heropic: /images/uploads/screenshot_2019-05-05_11-09-07.png
 bigtitle: Betta
