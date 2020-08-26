@@ -19,12 +19,12 @@ desc: "The Atelier is an instrument for the inspired artist. Giving homage to
   American Walnut as the neck. The Curly Black Cherry body has a deep carve
   making it incredibly comfortable. "
 price: "1799.99"
-profilepic: /images/uploads/dge5phquyaaz1cr.jpg
-heropic: /images/uploads/screenshot_2019-05-05_11-09-07.png
+profilepic: /images/uploads/heica.jpg
+heropic: /images/uploads/mhogany.jpg
 bigtitle: Betta
 subtitle: Work
 images:
-  - /images/uploads/dge5phquyaaz1cr.jpg
-  - /images/uploads/screenshot_2019-05-05_11-09-07.png
-  - /images/uploads/yall.png
+  - /images/uploads/centarus.jpg
+  - /images/uploads/heica.jpg
+  - /images/uploads/mhogany.jpg
 ---
