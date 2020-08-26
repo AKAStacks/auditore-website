@@ -63,3 +63,14 @@ collections:
     fields:
       - { label: "Caption", name: "name", widget: "string" }
       - { label: "Image", name: "profilepic", widget: "image" }
+
+  - name: 'pages'
+    label: 'Pages'
+    editor:
+      preview: false
+    files:
+      - label: 'Main Page'
+        name: 'index'
+        file: 'index.md'
+        fields:
+          - { label: 'About Us', name: 'aboutus', widget: 'string'}

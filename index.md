@@ -4,5 +4,6 @@ layout: default
 bigtitle: Auditore
 subtitle: Custom Instruments
 heropic: "/images/banner.jpg"
+aboutus: "This is the about us stuff."
 ---
-This is the about us stuff.
+{{ page.aboutus }}
